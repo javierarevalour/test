@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sitio de prueba — Seminario PLN</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 720px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-      line-height: 1.6;
-      color: #222;
-    }
-    header {
-      border-bottom: 2px solid #D50000;
-      padding-bottom: 1rem;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      margin: 0;
-      color: #D50000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de las provincias de España</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <header>
-    <h1>Publicación en GitHub Pages</h1>
-  </header>
-  <main>
-    <p>Página <code>index.html</code> de prueba publicada correctamente.</p>
-  </main>
+    <header>
+        <h1>Mapa de las provincias de España</h1>
+        <p>Haz clic sobre una provincia para ver su capital y número de habitantes</p>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="contenedor-mapa">
+            <svg id="mapa-espana" viewBox="0 0 900 680" aria-label="Mapa interactivo de las provincias de España">
+                <g id="capa-provincias"></g>
+                <g id="recuadro-canarias">
+                    <rect x="20" y="510" width="230" height="150" rx="8" class="marco-canarias" />
+                    <text x="32" y="530" class="etiqueta-canarias">Islas Canarias</text>
+                </g>
+            </svg>
+        </section>
+
+        <aside class="panel-info" id="panel-info">
+            <div class="tarjeta-info">
+                <span class="etiqueta-estado" id="estado-seleccion">Selecciona una provincia</span>
+                <h2 id="nombre-provincia">España</h2>
+                <div class="datos-provincia" id="datos-detalle" hidden>
+                    <div class="dato">
+                        <span class="dato-titulo">Capital</span>
+                        <span class="dato-valor" id="capital-provincia"></span>
+                    </div>
+                    <div class="dato">
+                        <span class="dato-titulo">Habitantes</span>
+                        <span class="dato-valor" id="habitantes-provincia"></span>
+                    </div>
+                </div>
+                <p class="instruccion-inicial" id="instruccion-inicial">
+                    Pulsa en cualquier provincia del mapa para consultar su capital y población oficial (INE).
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="codigo.js"></script>
 </body>
 </html>
